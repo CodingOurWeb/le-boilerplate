@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Le Boilerplate</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/default.css">
+
+    <!-- 
+    http://mathiasbynens.be/notes/touch-icons
+    
+    Replace these files in the site root.
+    Then delete this comment.
+    
+    apple-touch-icon-114x114-precomposed.png
+    apple-touch-icon-72x72-precomposed.png
+    apple-touch-icon-57x57-precomposed.png
+    apple-touch-icon-precomposed.png
+    apple-touch-icon.png
+    favicon.ico
+    -->
+    
+    <!-- All JavaScript at bottom except for Modernizr + Respond -->
+    <script src="js/libs/modernizr-custom.min.js"></script>
+    <script>Modernizr.mq('(min-width:0)') || document.write("<script src='js/libs/respond.min.js'>\x3C/script>")</script>
+</head>
+<body>
+    <header role="banner">
+    
+    </header>
+    
+    <footer role="contentinfo">
+    
+    </footer>
+    
+    <!-- jQuery CDN and fallback -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
+    <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.2.min.js'>\x3C/script>")</script>
+    <!-- Minify scripts on production -->
+    <script src="js/helpers.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <!-- mathiasbynens.be/notes/async-analytics-snippet | Change UA-XXXXX-X to your site's ID -->
+    <script>
+        var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+        g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+        s.parentNode.insertBefore(g,s)}(document,"script"));
+    </script>
+</body>
+</html>
