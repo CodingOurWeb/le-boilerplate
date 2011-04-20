@@ -414,6 +414,7 @@ button::-moz-focus-inner {
 
 textarea { 
     overflow: auto; /* 1 */
+    min-height: 5em;
     vertical-align: text-top; /* 2 */
 }
 
@@ -441,8 +442,6 @@ button {
 .cf:after { 
     content: ""; 
     display: block; 
-    height: 0; 
-    overflow: hidden; 
 }
 
 .cf:after { 
