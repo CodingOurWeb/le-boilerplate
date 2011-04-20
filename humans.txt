@@ -3,17 +3,17 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site: 
-  Twitter: 
-  Location: 
+  Front-end developer : Nicolas Gallagher
+  Site: http://nicolasgallagher.com
+  Twitter: @necolas
+  Location: London, UK
 
 /* THANKS */
   Names (& URL): 
 
 /* SITE */
   Standards: HTML5, CSS3
-  Components: Modernizr, jQuery
+  Components: Modernizr, jQuery, Respond.js
   Software:
   
 

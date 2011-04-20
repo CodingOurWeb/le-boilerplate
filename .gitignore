@@ -1,3 +1,8 @@
+# To remove existing cache files
+# from the repository, type this
+# into the terminal:
+# git rm -rf –cached dir/file.ext
+
 # Numerous always-ignore extensions
 *.diff
 *.err
@@ -10,27 +15,13 @@
 *~
 
 # OS or Editor folders
-.DS_Store
 .cache
 .project
 .settings
-nbproject
 thumbs.db
-
-# Dreamweaver added files
-_notes
-dwsync.xml
-
-# Komodo
-*.komodoproject
-.komodotools
 
 # Folders to ignore
 .hg
 .svn
-publish
 .idea
-
-# build script local files
-build/buildinfo.properties
-build/config/buildinfo.properties
+publish

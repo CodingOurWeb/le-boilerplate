@@ -4,17 +4,11 @@
 # Note .htaccess files are an overhead, this logic should be in your Apache config if possible
 # httpd.apache.org/docs/2.2/howto/htaccess.html
 
-# Techniques in here adapted from all over, including:
+# Source: https://github.com/paulirish/html5-boilerplate/blob/master/.htaccess
+# Includes techniques adapted from:
 #   Kroc Camen: camendesign.com/.htaccess
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
 #   Sample .htaccess file of CMS MODx: modxcms.com
-
-
-###
-### If you run a webserver other than apache, consider:
-### github.com/paulirish/html5-boilerplate-server-configs
-###
-
 
 
 # ----------------------------------------------------------------------
@@ -26,10 +20,10 @@
 # Use ChromeFrame if it's installed for a better experience for the poor IE folk
 
 <IfModule mod_setenvif.c>
-  <IfModule mod_headers.c>
-    BrowserMatch MSIE ie
-    Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
-  </IfModule>
+    <IfModule mod_headers.c>
+        BrowserMatch MSIE ie
+        Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+    </IfModule>
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -41,20 +35,6 @@
 
 
 # ----------------------------------------------------------------------
-# Cross-domain AJAX requests
-# ----------------------------------------------------------------------
-
-# Serve cross-domain ajax requests, disabled.   
-# enable-cors.org
-# code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
-
-#  <IfModule mod_headers.c>
-#    Header set Access-Control-Allow-Origin "*"
-#  </IfModule>
-
-
-
-# ----------------------------------------------------------------------
 # Webfont access
 # ----------------------------------------------------------------------
 
@@ -63,11 +43,10 @@
 #   your subdomains like "sub.domain.com"
 
 <FilesMatch "\.(ttf|otf|eot|woff|font.css)$">
-  <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-  </IfModule>
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
 </FilesMatch>
-
 
 
 # ----------------------------------------------------------------------
@@ -103,7 +82,6 @@ AddType application/x-xpinstall        xpi
 AddType application/octet-stream       safariextz
 
 
-
 # ----------------------------------------------------------------------
 # Allow concatenation from within specific js and css files 
 # ----------------------------------------------------------------------
@@ -119,10 +97,9 @@ AddType application/octet-stream       safariextz
 # Disabled by default.
 
 # <FilesMatch "\.combined\.(js|css)$">
-#         Options +Includes
-#         SetOutputFilter INCLUDES
+#     Options +Includes
+#     SetOutputFilter INCLUDES
 # </FilesMatch>
-
 
 
 # ----------------------------------------------------------------------
@@ -131,36 +108,36 @@ AddType application/octet-stream       safariextz
 
 <IfModule mod_deflate.c>
 
+    # force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s,?\s(gzip|deflate)?|X{4,13}|~{4,13}|-{4,13})$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+        </IfModule>
+    </IfModule>
 
-# force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
-<IfModule mod_setenvif.c>
-  <IfModule mod_headers.c>
-    SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s,?\s(gzip|deflate)?|X{4,13}|~{4,13}|-{4,13})$ HAVE_Accept-Encoding
-    RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
-  </IfModule>
-</IfModule>
-# html, txt, css, js, json, xml, htc:
-<IfModule filter_module>
-  FilterDeclare   COMPRESS
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /text/(html|css|javascript|plain|x(ml|-component))/
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /application/(javascript|json|xml|x-javascript)/
-  FilterChain     COMPRESS
-  FilterProtocol  COMPRESS  change=yes;byteranges=no
-</IfModule>
+    # html, txt, css, js, json, xml, htc:
+    <IfModule filter_module>
+        FilterDeclare   COMPRESS
+        FilterProvider  COMPRESS  DEFLATE resp=Content-Type /text/(html|css|javascript|plain|x(ml|-component))/
+        FilterProvider  COMPRESS  DEFLATE resp=Content-Type /application/(javascript|json|xml|x-javascript)/
+        FilterChain     COMPRESS
+        FilterProtocol  COMPRESS  change=yes;byteranges=no
+    </IfModule>
 
-<IfModule !mod_filter.c>
-  # Legacy versions of Apache
-  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
-  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
-  AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
-</IfModule>
+    <IfModule !mod_filter.c>
+        # Legacy versions of Apache
+        AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+        AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
+        AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+    </IfModule>
 
-# webfonts and svg:
-  <FilesMatch "\.(ttf|otf|eot|svg)$" >
-    SetOutputFilter DEFLATE
-  </FilesMatch>
+    # webfonts and svg:
+    <FilesMatch "\.(ttf|otf|eot|svg)$" >
+        SetOutputFilter DEFLATE
+    </FilesMatch>
+    
 </IfModule>
-
 
 
 # ----------------------------------------------------------------------
@@ -224,12 +201,11 @@ AddType application/octet-stream       safariextz
   ExpiresByType application/javascript    "access plus 2 months"
   ExpiresByType text/javascript           "access plus 2 months"
   
-  <IfModule mod_headers.c>
-    Header append Cache-Control "public"
-  </IfModule>
+    <IfModule mod_headers.c>
+      Header append Cache-Control "public"
+    </IfModule>
   
 </IfModule>
-
 
 
 # ----------------------------------------------------------------------
@@ -240,37 +216,6 @@ AddType application/octet-stream       safariextz
 # static content.
 #   developer.yahoo.com/performance/rules.html#etags
 FileETag None
-
-
-
-# ----------------------------------------------------------------------
-# Stop screen flicker in IE on CSS rollovers
-# ----------------------------------------------------------------------
-
-# The following directives stop screen flicker in IE on CSS rollovers - in
-# combination with the "ExpiresByType" rules for images (see above). If
-# needed, un-comment the following rules.
-
-# BrowserMatch "MSIE" brokenvary=1
-# BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
-# BrowserMatch "Opera" !brokenvary
-# SetEnvIf brokenvary 1 force-no-vary
-
-
-
-# ----------------------------------------------------------------------
-# Cookie setting from iframes
-# ----------------------------------------------------------------------
-
-# Allow cookies to be set from iframes (for IE only)
-# If needed, uncomment and specify a path or regex in the Location directive
-
-# <IfModule mod_headers.c>
-#   <Location />
-#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
-#   </Location>
-# </IfModule>
-
 
 
 # ----------------------------------------------------------------------
@@ -284,25 +229,10 @@ FileETag None
 </IfModule>
 
 
-
 # ----------------------------------------------------------------------
-# Suppress or force the "www." at the beginning of URLs
-# ----------------------------------------------------------------------
-
-# The same content should never be available under two different URLs - especially not with and
-# without "www." at the beginning, since this can cause SEO problems (duplicate content).
-# That's why you should choose one of the alternatives and redirect the other one.
-
-# By default option 1 (no "www.") is activated. Remember: Shorter URLs are sexier.
-# no-www.org/faq.php?q=class_b
-
-# If you rather want to use option 2, just comment out all option 1 lines
-# and uncomment option 2.
-# IMPORTANT: NEVER USE BOTH RULES AT THE SAME TIME!
-
+# Suppress the "www." at the beginning of URLs
 # ----------------------------------------------------------------------
 
-# Option 1:
 # Rewrite "www.domain.com -> domain.com" 
 
 <IfModule mod_rewrite.c>
@@ -311,38 +241,11 @@ FileETag None
   RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 </IfModule>
 
-# ----------------------------------------------------------------------
-
-# Option 2:
-# To rewrite "domain.com -> www.domain.com" uncomment the following lines.
-# Be aware that the following rule might not be a good idea if you
-# use "real" subdomains for certain parts of your website.
-
-# <IfModule mod_rewrite.c>
-#   RewriteCond %{HTTPS} !=on
-#   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-#   RewriteCond %{HTTP_HOST} (.+)$ [NC]
-#   RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]
-# </IfModule>
-
-
 
 # ----------------------------------------------------------------------
 # Add/remove trailing slash to (non-file) URLs
 # ----------------------------------------------------------------------
 
-# Google treats URLs with and without trailing slashes separately.
-# Forcing a trailing slash is usually preferred, but all that's really
-# important is that one correctly redirects to the other.
-
-# By default option 1 (force trailing slash) is activated.
-# http://googlewebmastercentral.blogspot.com/2010/04/to-slash-or-not-to-slash.html
-# http://www.alistapart.com/articles/slashforward/
-# http://httpd.apache.org/docs/2.0/misc/rewriteguide.html#url Trailing Slash Problem
-
-# ----------------------------------------------------------------------
-
-# Option 1:
 # Rewrite "domain.com/foo -> domain.com/foo/"
 
 <IfModule mod_rewrite.c>
@@ -351,37 +254,22 @@ FileETag None
   RewriteRule ^(.*)$ /$1/ [R=301,L]
 </IfModule>
 
-# ----------------------------------------------------------------------
-
-# Option 2:
-# Rewrite "domain.com/foo/ -> domain.com/foo"
-
-#<IfModule mod_rewrite.c>
-#  RewriteRule ^(.*)/$ /$1 [R=301,L]
-#</IfModule>
-
-
 
 # ----------------------------------------------------------------------
 # Built-in filename-based cache busting
 # ----------------------------------------------------------------------
 
-# If you're not using the build script to manage your filename version revving,
-# you might want to consider enabling this, which will route requests for
-# /css/style.20110203.css to /css/style.css
+# Comment out if using a build script
+# This will route requests for /css/style.20110203.css to /css/style.css
+# Read: http://particletree.com/notebook/automatically-version-your-css-and-javascript-files/
 
-# To understand why this is important and a better idea than all.css?v1231,
-# read: github.com/paulirish/html5-boilerplate/wiki/Version-Control-with-Cachebusting
-
-# Uncomment to enable.
 # <IfModule mod_rewrite.c>
-#   RewriteCond %{REQUEST_FILENAME} !-f
-#   RewriteCond %{REQUEST_FILENAME} !-d
-#   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
+#  RewriteCond %{REQUEST_FILENAME} !-f
+#  RewriteCond %{REQUEST_FILENAME} !-d
+#  RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
 # </IfModule>
 
 
-	
 # ----------------------------------------------------------------------
 # Prevent SSL cert warnings
 # ----------------------------------------------------------------------
@@ -396,7 +284,6 @@ FileETag None
 # </IfModule>
 
 
-
 # ----------------------------------------------------------------------
 # Prevent 404 errors for non-existing redirected folders
 # ----------------------------------------------------------------------
@@ -407,14 +294,12 @@ FileETag None
 Options -MultiViews 
 
 
-
 # ----------------------------------------------------------------------
 # custom 404 page
 # ----------------------------------------------------------------------
 
 # You can add custom pages to handle 500 or 403 pretty easily, if you like.
 ErrorDocument 404 /404.html
-
 
 
 # ----------------------------------------------------------------------
@@ -426,7 +311,6 @@ AddDefaultCharset utf-8
 
 # force utf-8 for a number of file formats
 AddCharset utf-8 .html .css .js .xml .json .rss
-
 
 
 # ----------------------------------------------------------------------
@@ -473,6 +357,5 @@ Options -Indexes
 
 # Increase cookie security
 <IfModule php5_module>
-php_value session.cookie_httponly true
+  php_value session.cookie_httponly true
 </IfModule>
-
