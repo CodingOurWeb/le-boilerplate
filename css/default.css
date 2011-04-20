@@ -1,0 +1,578 @@
+/* -----------------------------------------------
+
+LE BOILERPLATE
+
+Author: Nicolas Gallagher / http://nicolasgallagher.com
+URL:    http://github.com/necolas/le-boilerplate
+
+--------------------------------------------------
+
+ALL MEDIA
+  1. NORMALISATION
+  2. BASE
+  3. COMPONENTS
+
+SCREEN 481+
+
+SCREEN 781+
+
+PRINT
+
+*/
+
+
+
+
+
+/* ============================================================================================================================ **
+**                                                      A L L   M E D I A
+** ============================================================================================================================ */
+
+
+/* ============================================================================================================= 1. NORMALISATION */
+
+/*
+ * Initial reset of any browser defaults on HTML5 elements
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, q,
+address, pre, code, kbd, samp,
+abbr, del, dfn, ins, cite, img,
+small, strong, em, b, i, sub, sup,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video, output {
+    padding: 0; 
+    border: 0; 
+    margin: 0; 
+    font-size: 100%; 
+    vertical-align: baseline; 
+}
+
+/*
+ * Make some HTML5 elements display block level
+ * Display not properly defined in IE6/7/8/9 & FF3
+*/
+
+header, 
+section, 
+article, 
+aside, 
+footer,
+nav, 
+menu, 
+hgroup, 
+figure, 
+figcaption, 
+details, 
+summary {
+    display: block;
+}
+
+/* 
+ * Remove most spacing between table cells
+ * Include cellspacing="0" in the HTML
+*/
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*
+ * Allow high quality bicubic image resampling for <img> element
+ * Improves readability when scaled in IE
+ * - (Read before using) http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+*/
+
+img {
+	/* -ms-interpolation-mode: bicubic; */ /* 2 */
+}
+
+/* ============================================================================================================= 2. BASE */
+
+/*
+ * 1. Add horizontal scrollbar to <html> element
+ *    Scrollbars keep page center consistent regardless of content overflow
+ * 2. Reset font-size consistently across browsers
+ * 3. Remove iOS tap highlight color to prevent entire container's being highlighted
+ *    - http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
+ * 4. Remove iOS text size adjust without disabling user zoom
+ *    - http://www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+*/
+
+html { 
+    overflow-y: scroll; /* 1 */
+    font-size: 100.01%; /* 2 */
+    -webkit-tap-highlight-color: transparent; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%;
+}
+
+/*
+ * 1. Add a max-width as fallback for desktop environments w/o media query support
+ *    and without JavaScript enabled (if using a polyfill).
+ *    Remember to override in subsequent @media blocks
+ * 2. Add whitespace at the edges of the viewport to aide readability (? good idea on mobile ?)
+ * 3. Set the base font-size for the document without prevent text resizing in IE6/7
+*/
+
+body {
+    max-width: 460px; /* 1 */
+    padding: 0 10px; /* 2 */
+    margin: 0 auto;
+    font-size: 0.8125em; /* 3 - 13px */
+    line-height: 1.231; 
+    background: #fff;
+}
+
+/*
+ * Set the default font-family and color
+ * Make sure it is also applied to form elements
+*/
+
+body, 
+input, 
+button, 
+textarea, 
+select { 
+    font-family: sans-serif;
+    color: #333; 
+}
+
+/*
+ * Selection highlight
+ * 1. Remove text-shadow to ensure readability is not compromised
+ *    - http://camendesign.com/design/
+*/
+
+::-moz-selection { 
+    text-shadow: none; /* 1 */
+    color: #fff; 
+    background: #ff5e99;
+}
+
+::selection { 
+    text-shadow: none; /* 1 */
+    color: #fff; 
+    background: #ff5e99;
+}
+
+/* ............................................................................................................. Links */
+
+a:link, 
+a:visited { 
+    text-decoration: underline; 
+    color: #06c;
+}
+
+a:hover, 
+a:focus, 
+a:active { 
+    text-decoration: none;
+}
+
+/*
+ * Remove outline on <a> element when active or hovered
+ * Improves readability when focused and then also mouse activated
+ * - http://people.opera.com/patrickl/experiments/keyboard/test
+*/
+
+a:hover, 
+a:active { 
+    outline: 0;
+}
+
+/* ............................................................................................................. Typography */
+
+h1, 
+h2, 
+h3, 
+h4 {
+
+}
+
+p { 
+    margin:0 0 1.4em;
+}
+
+/*
+ * Display lists consistently.
+ * IE6/7 will not display bullets unless there is enough padding between 
+ * the bullet-side of list and the outer edge of the <body> padding-box
+ * 1. Correct the margin in IE6/7
+*/
+
+ul, 
+ol { 
+    margin-left: 1.5em; 
+    *margin-left:1.75em; /* 1 */
+}
+
+/*
+ * Remove margin and bullets from lists in <nav> elements
+*/
+
+nav ul { 
+    margin: 0; 
+    list-style:none;
+}
+
+/*
+ * Set consistent typographic defaults
+ * Firefox and WebKit default <b> and <strong> to 'bolder'
+*/
+
+b, 
+strong { 
+    font-weight: bold; 
+}
+
+address { 
+    font-style: normal; 
+}
+
+small { 
+    font-size: 85%; 
+}
+
+/*
+ * Add a visual indication that an abbreviation's expansion is available
+ * Styling not present in IE6/7/8/9 Chrome10 & Safari5
+*/
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/*
+ * Add italic font style to <dfn> element
+ * Styling not present in Chrome10 & Safari5
+*/
+
+dfn {
+	font-style: italic;
+}
+
+/*
+ * Remove underline from <ins> so it is not confused with links
+*/
+ 
+ins { 
+    text-decoration: none; 
+    color: #000;
+    background-color: #ff9;
+}
+
+/*
+ * Add yellow background and black text to <mark> element
+ * Styling not present in IE6/7/8/9
+*/
+
+mark { 
+    font-weight: bold; 
+    color: #000; 
+    background-color: #ff0;
+}
+
+/*
+ * Position subscript and superscript content without affecting line-height
+ * - http://gist.github.com/413930
+*/
+
+sup, 
+sub { 
+    position: relative; 
+    font-size:75%; 
+    line-height: 0; 
+    vertical-align: baseline; 
+}
+
+sup { 
+    top: -0.5em; 
+}
+
+sub { 
+    bottom: -0.25em; 
+}
+
+/*
+ * Paragraph-level thematic break
+ * Standardise appearance. Use border to ensure display when printed
+*/
+
+hr {
+    display: block;
+    height: 0;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid #333;
+    margin: 1em 0;
+}
+
+/*
+ * Remove quotes from <q> element
+ * 1. CSS quotes not supported in IE6/7
+ * 2. Quote attributes not supported in Safari4
+*/
+
+/* 1 */
+q {
+    quotes: none;
+}
+
+/* 2 */
+q:before,
+q:after {
+    content: "";
+}
+
+/*
+ * Allow line wrapping for <pre> element
+ * Improves readability of pre-formatted text
+*/
+
+pre { 
+    /* padding: 15px; */
+    white-space: pre; 
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+}
+
+/*
+ * Redeclare monospace font family and include a san-serif fallback
+ * Fix so that these elements can then be given normal font size
+ * - http://en.wikipedia.org/wiki/User:Davidgothberg/Test59
+*/
+
+pre, 
+code, 
+kbd, 
+samp { 
+    font-family: monospace, sans-serif; 
+    font-size: 1em;
+}
+
+/* ............................................................................................................. Form elements */
+
+/*
+ * Correct left alignment of <legend> element in IE6/7
+*/
+
+legend {
+	*margin-left: -7px;
+}
+
+/*
+ * Normalise form elements
+ * 1. Remove extra inner space from <input> and <button> in IE6/7
+ *    - http://jehiah.cz/a/button-width-in-ie
+ * 2. Remove margins from form elements
+ *     All elements have a 2px margin in Chrome10 & Safari5.
+ *     All <textarea> have 1px vertical margins in Firefox.
+ * 3. Make font-size equal to body default
+ * 4. Have all browsers use the same line-height. 
+ *     Firefox doesn't allow control of line-height for <input> and <button>.
+ *     Corrects button line-height in IE6.
+ * 5. Standardised vertical-align
+ *     IE defaults to 'auto'. Firefox defaults to 'text-bottom' for <textarea>
+*/
+
+input,
+button,
+select,
+textarea {
+    overflow: visible;  /* 1 */
+    margin: 0; /* 2 */
+    font-size: 100%; /* 3 */
+    line-height: normal; /* 4 */
+    vertical-align: baseline; /* 5 */
+}
+
+/*
+ * Remove extra inner padding and border in FF3/4
+ * - http://www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+*/
+
+input::-moz-focus-inner,
+button::-moz-focus-inner { 
+    padding: 0;
+    border: 0;  
+}
+
+/*
+ * 1. Disable default horizontal scrollbar for <textarea> element
+ *     Scrollbar displayed by default in IE6/7/8/9
+ * 2. Align <textarea> with text-top when inline
+ *     Improves usability and corrects Firefox 3/4 failure to align with baseline
+*/
+
+textarea { 
+    overflow: auto; /* 1 */
+    vertical-align: text-top; /* 2 */
+}
+
+/*
+ * Display hand cursor for submission elements
+ * Improves usability of forms
+*/
+
+input[type="button"], 
+input[type="submit"], 
+input[type="image"], 
+button {
+    cursor: pointer;
+}
+
+/* ............................................................................................................. Clearfix */
+
+/*
+ * Clear an element's floated children using generated content
+ * Inclusion of :before improves visual consistency between modern browsers and IE6/7
+ * - http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified/
+*/
+
+.cf:before, 
+.cf:after { 
+    content: ""; 
+    display: block; 
+    height: 0; 
+    overflow: hidden; 
+}
+
+.cf:after { 
+    clear: both; 
+}
+
+.cf { 
+    zoom: 1;
+}
+
+
+
+/* ============================================================================================================= 3. COMPONENTS */
+
+/*
+ * Your custom styles for viewport widths < 481px (keep linear and fluid)
+ * Also affect print styles
+*/
+
+
+
+
+
+/* ============================================================================================================================ **
+**                                                       S C R E E N (481+)
+** ============================================================================================================================ */
+
+@media only screen and (min-width: 481px) {
+
+/*
+ * Screen-only style adjustmenets for viewport widths 481px to 780px
+*/
+
+body { 
+    max-width:auto;
+}
+
+/* end @media only screen and (min-width: 481px) */}/*/mediaquery*/
+
+
+
+
+
+/* ============================================================================================================================ **
+**                                                       S C R E E N (781+)
+** ============================================================================================================================ */
+
+@media only screen and (min-width: 781px) {
+
+/*
+ * Screen-only style adjustments for viewport widths 781px and over
+*/
+
+
+/* end @media only screen and (min-width: 781px) */}/*/mediaquery*/
+
+
+
+
+
+/* ============================================================================================================================ **
+**                                                       P R I N T
+** ============================================================================================================================ */
+
+@media print {
+
+/*
+ * Print-only style adjustements inlined to avoid required HTTP connection
+ * - http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+* { 
+    text-shadow: none !important; 
+    background: transparent !important; 
+    color: black !important; 
+    filter: none !important; 
+} 
+
+body { 
+    max-width:auto;
+}
+
+a, 
+a:visited { 
+    color: #444 !important; 
+    text-decoration: underline; 
+}
+
+a[href]:after { 
+    content: " (" attr(href) ")"; 
+}
+
+a[href^="#"]:after { 
+    content: ""; 
+}
+  
+pre, 
+blockquote { 
+    border: 1px solid #999; 
+    page-break-inside: avoid; 
+}
+
+thead { 
+    display: table-header-group; 
+}
+
+tr, 
+img { 
+    page-break-inside: avoid; 
+}
+
+h2, 
+h3 { 
+    page-break-after: avoid;
+}
+
+p, 
+h2, 
+h3 { 
+    orphans: 3; 
+    widows: 3;
+ }
+
+@page { 
+    margin: 0.5cm;
+}
+
+/*
+ * Your custom styles for printing
+*/
+
+
+/* end @media print */}
