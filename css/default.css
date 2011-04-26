@@ -35,17 +35,13 @@ PRINT
  * Initial reset of any browser defaults on HTML5 elements
 */
 
-html, body, div, span, object, iframe,
+html, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, q,
 address, pre, code, kbd, samp,
 abbr, del, dfn, ins, cite, img,
-small, strong, em, b, i, sub, sup,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video, output {
+table, caption, tbody, tfoot, thead, tr, th, td {
     padding: 0; 
     border: 0; 
     margin: 0; 
@@ -75,7 +71,6 @@ summary {
 
 /* 
  * Remove most spacing between table cells
- * Include cellspacing="0" in the HTML
 */
 
 table {
@@ -84,12 +79,13 @@ table {
 }
 
 /*
- * Allow high quality bicubic image resampling for <img> element
- * Improves readability when scaled in IE
- * - (Read before using) http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ * 2. Allow high quality bicubic image resampling for <img> element
+ *    Improves readability when scaled in IE
+ *    - (Read before using) http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
 */
 
 img {
+    border: 0;
     /* -ms-interpolation-mode: bicubic; */ /* 2 */
 }
 
@@ -414,7 +410,6 @@ button::-moz-focus-inner {
 
 textarea { 
     overflow: auto; /* 1 */
-    min-height: 5em;
     vertical-align: text-top; /* 2 */
 }
 
@@ -434,23 +429,25 @@ button {
 
 /*
  * Clear an element's floated children using generated content
- * Inclusion of :before improves visual consistency between modern browsers and IE6/7
- * - http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified/
+ * Inclusion of :before consistently prevents margin collapse in modern browsers
+ * Improves visual consistency between modern browsers and IE6/7
+ * - http://nicolasgallagher.com/micro-clearfix-hack/
 */
+
+.cf { 
+    zoom: 1;
+}
 
 .cf:before, 
 .cf:after { 
     content: ""; 
-    display: block; 
+    display: table; 
 }
 
 .cf:after { 
     clear: both; 
 }
 
-.cf { 
-    zoom: 1;
-}
 
 
 
@@ -537,7 +534,11 @@ a[href]:after {
 a[href^="#"]:after { 
     content: ""; 
 }
-  
+
+img {
+    max-width:100%;
+}
+
 pre, 
 blockquote { 
     border: 1px solid #999; 
