@@ -79,14 +79,14 @@ table {
 }
 
 /*
- * 2. Allow high quality bicubic image resampling for <img> element
+ * 1. Allow high quality bicubic image resampling for <img> element
  *    Improves readability when scaled in IE
  *    - (Read before using) http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
 */
 
 img {
     border: 0;
-    /* -ms-interpolation-mode: bicubic; */ /* 2 */
+    /* -ms-interpolation-mode: bicubic; */ /* 1 */
 }
 
 /* ============================================================================================================= 2. BASE */
@@ -110,19 +110,15 @@ html {
 }
 
 /*
- * 1. Add a max-width as fallback for desktop environments w/o media query support
- *    and without JavaScript enabled (if using a polyfill).
- *    Remember to override in subsequent @media blocks
- * 2. Add whitespace at the edges of the viewport to aide readability (? good idea on mobile ?)
- * 3. Set the base font-size for the document without prevent text resizing in IE6/7
+ * Set the base font-size for the document without prevent text resizing in IE6/7
+ * N.B. Remember to add a max-width to <body> or contain elements as a fallback in certain desktop environments
 */
 
 body {
-    max-width: 460px; /* 1 */
-    padding: 0 10px; /* 2 */
-    margin: 0 auto;
-    font-size: 0.8125em; /* 3 - 13px */
-    line-height: 1.231; /* 16px */
+    padding: 0;
+    margin: 0;
+    font-size: 0.875em; /* 14px */
+    line-height: 1.4;
     background: #fff;
 }
 
@@ -472,9 +468,6 @@ button {
  * Screen-only style adjustmenets for viewport widths 481px to 780px
 */
 
-body { 
-    max-width: auto;
-}
 
 /* end @media 481+ */}/*/mediaquery*/
 
