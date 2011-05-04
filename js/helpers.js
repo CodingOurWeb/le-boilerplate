@@ -33,10 +33,10 @@
     // Hide URL Bar for iOS
     // http://remysharp.com/2010/08/05/doing-it-right-skipping-the-iphone-url-bar/
     MBP.hideUrlBar = function () {
-        /iPhone/.test(MBP.ua) && !pageYOffset && !location.hash && setTimeout(function () {
-            window.scrollTo(0, 1);
+    /iPhone/.test(MBP.ua) && !location.hash && setTimeout(function () {
+          pageYOffset || window.scrollTo(0, 1);
         }, 1000);
-    }
+    };
 
     // Autogrow
     // http://googlecode.blogspot.com/2009/07/gmail-for-mobile-html5-series.html
