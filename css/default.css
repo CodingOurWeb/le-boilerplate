@@ -28,6 +28,10 @@ PRINT
 **                                                      A L L   M E D I A
 ** ============================================================================================================================ */
 
+/*
+ * Styles affecting all viewport widths and print (keep linear and fluid)
+*/
+
 
 /* ============================================================================================================= 1. NORMALISATION */
 
@@ -449,10 +453,6 @@ button {
 
 /* ============================================================================================================= 3. COMPONENTS */
 
-/*
- * Your custom styles for viewport widths < 481px (keep linear and fluid)
- * Also affect print styles
-*/
 
 
 
@@ -562,10 +562,6 @@ h3 {
 @page { 
     margin: 0.5cm;
 }
-
-/*
- * Your custom styles for printing
-*/
 
 
 /* end @media print */}/*/mediaquery*/
