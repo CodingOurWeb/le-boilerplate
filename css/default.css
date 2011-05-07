@@ -43,7 +43,7 @@ html, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, q,
 address, pre, code, kbd, samp,
 abbr, del, dfn, ins, cite, img,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
     padding: 0; 
@@ -193,20 +193,17 @@ h4 {
 }
 
 p { 
-    margin: 0 0 1.4em;
+    margin: 1.4em 0;
 }
-
-/*
- * Display lists consistently.
- * IE6/7 will not display bullets unless there is enough padding between 
- * the bullet-side of list and the outer edge of the <body> padding-box
- * 1. Correct the margin in IE6/7
-*/
 
 ul, 
 ol { 
-    margin-left: 1.5em; 
-    *margin-left: 1.75em; /* 1 */
+    padding: 0 0 0 30px;
+    margin: 1.4em 0;
+}
+
+li {
+    margin: 0.7em 0;
 }
 
 /*
@@ -297,20 +294,6 @@ sub {
 }
 
 /*
- * Paragraph-level thematic break
- * Standardise appearance. Use border to ensure display when printed
-*/
-
-hr {
-    display: block;
-    height: 0;
-    padding: 0;
-    border: 0;
-    border-top: 1px solid #333;
-    margin: 1em 0;
-}
-
-/*
  * Remove quotes from <q> element
  * 1. CSS quotes not supported in IE6/7
  * 2. Quote attributes not supported in Safari4
@@ -333,9 +316,7 @@ q:after {
 */
 
 pre { 
-    /* padding: 15px; */
     white-space: pre; 
-    white-space: -moz-pre-wrap;
     white-space: pre-wrap; 
     word-wrap: break-word; 
 }
@@ -404,13 +385,13 @@ button::-moz-focus-inner {
 /*
  * 1. Disable default horizontal scrollbar for <textarea> element
  *     Scrollbar displayed by default in IE6/7/8/9
- * 2. Align <textarea> with text-top when inline
- *     Improves usability and corrects Firefox 3/4 failure to align with baseline
+ * 2. Align <textarea> with top when inline
+ *     Improves usability and corrects baseline inconsistency in Firefox 3/4
 */
 
 textarea { 
     overflow: auto; /* 1 */
-    vertical-align: text-top; /* 2 */
+    vertical-align: top; /* 2 */
 }
 
 /*
