@@ -39,12 +39,8 @@ PRINT
  * Initial reset of any browser defaults on HTML5 elements
 */
 
-html, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, q,
-address, pre, code, kbd, samp,
 abbr, del, dfn, ins, cite, img,
 dl, dt, dd,
-fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
     padding: 0; 
     border: 0; 
@@ -185,12 +181,12 @@ a:active {
 
 /* ............................................................................................................. Typography */
 
-h1, 
-h2, 
-h3, 
-h4 {
-
-}
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
 
 p { 
     margin: 1.4em 0;
@@ -203,6 +199,7 @@ ol {
 }
 
 li {
+    padding: 0;
     margin: 0.7em 0;
 }
 
@@ -210,9 +207,11 @@ li {
  * Remove margin and bullets from lists in <nav> elements
 */
 
-nav ul { 
-    margin: 0; 
+nav ul,
+nav li { 
     list-style: none;
+    padding: 0;
+    margin: 0; 
 }
 
 /*
@@ -311,6 +310,14 @@ q:after {
 }
 
 /*
+ * Consistent blockquote indentation
+*/
+
+blockquote {
+    margin: 1.4em 0 1.4em 30px;
+}
+
+/*
  * Allow line wrapping for <pre> element
  * Improves readability of pre-formatted text
 */
@@ -336,6 +343,12 @@ samp {
 }
 
 /* ............................................................................................................. Form elements */
+
+fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
 
 /*
  * Correct left alignment of <legend> element in IE6/7
