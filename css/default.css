@@ -485,17 +485,17 @@ caption {
 
 
 /* ============================================================================================================================ **
-**                                                       S C R E E N (781+)
+**                                                       S C R E E N (768+)
 ** ============================================================================================================================ */
 
-@media only screen and (min-width: 781px) {
+@media only screen and (min-width: 768px) {
 
 /*
- * Screen-only style adjustments for viewport widths 781px and over
+ * Screen-only style adjustments for viewport widths 768px and over
 */
 
 
-/* end @media 781px+ */}/*/mediaquery*/
+/* end @media 768px+ */}/*/mediaquery*/
 
 
 
@@ -573,4 +573,4 @@ h3 {
 }
 
 
-/* end @media print */}/*/mediaquery*/
+/* end @media print */}
