@@ -105,7 +105,7 @@ html {
 
 /*
  * Set the base font-size for the document without prevent text resizing in IE6/7
- * N.B. Remember to add a max-width to <body> or contain elements as a fallback in certain desktop environments
+ * N.B. Remember to add a max-width to <body> or container elements as a fallback in certain desktop environments
 */
 
 body {
