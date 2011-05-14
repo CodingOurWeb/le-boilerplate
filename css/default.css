@@ -30,15 +30,15 @@ PRINT
 
 /*
  * Styles affecting all viewport widths and print (keep linear and fluid)
-*/
+ */
 
 
-/* ============================================================================================================= 1. NORMALISATION */
+/* ============================================================================================================= 1. HTML5 ELEMENT DISPLAY */
 
 /*
- * Make some HTML5 elements display block level
+ * Add display for block-level HTML5 elements
  * Display not properly defined in IE6/7/8/9 & FF3
-*/
+ */
 
 header, 
 section, 
@@ -56,9 +56,9 @@ summary {
 }
 
 /*
- * Make other HTML5 elements display inline-block
+ * Add display for embedded HTML5 elements
  * Display not properly defined in IE6/7/8/9 & FF3
-*/
+ */
 
 audio,
 canvas,
@@ -66,18 +66,6 @@ video {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
-}
-
-/*
- * 1. Prevent border in IE 6/7 when <img> is within <a>
- * 2. Allow high quality bicubic image resampling for <img> element
- *    Improves readability when scaled in IE
- *    - (Read before using) http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
-*/
-
-img {
-    border: 0; /* 1 */
-    /* -ms-interpolation-mode: bicubic; */ /* 2 */
 }
 
 
@@ -93,7 +81,7 @@ img {
  *    - http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
  * 4. Remove iOS text size adjust without disabling user zoom
  *    - http://www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
-*/
+ */
 
 html { 
     overflow-y: scroll; /* 1 */
@@ -106,10 +94,9 @@ html {
 /*
  * Set the base font-size for the document without prevent text resizing in IE6/7
  * N.B. Remember to add a max-width to <body> or container elements as a fallback in certain desktop environments
-*/
+ */
 
 body {
-    padding: 0;
     margin: 0;
     font-size: 0.875em; /* 14px */
     line-height: 1.4;
@@ -119,7 +106,7 @@ body {
 /*
  * Set the default font-family and color
  * Make sure it is also applied to form elements
-*/
+ */
 
 body, 
 input, 
@@ -131,10 +118,22 @@ select {
 }
 
 /*
+ * 1. Prevent border in IE6/7 when <img> is within <a>
+ * 2. Allow high quality bicubic image resampling for <img> element
+ *    Improves readability when scaled in IE
+ *    - (Read before using) http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+
+img {
+    border: 0; /* 1 */
+    /* -ms-interpolation-mode: bicubic; */ /* 2 */
+}
+
+/*
  * Selection highlight
  * 1. Remove text-shadow to ensure readability is not compromised
  *    - http://camendesign.com/design/
-*/
+ */
 
 ::-moz-selection { 
     text-shadow: none; /* 1 */
@@ -166,14 +165,14 @@ a:active {
  * Remove outline on <a> element when active or hovered
  * Improves readability when focused and then also mouse activated
  * - http://people.opera.com/patrickl/experiments/keyboard/test
-*/
+ */
 
 a:hover, 
 a:active { 
     outline: 0;
 }
 
-/* ............................................................................................................. Typography */
+/* ............................................................................................................. Headings + paragraphs */
 
 h1 {}
 h2 {}
@@ -185,6 +184,8 @@ h6 {}
 p { 
     margin: 1.4em 0;
 }
+
+/* ............................................................................................................. Lists */
 
 ul, 
 ol,
@@ -211,27 +212,11 @@ nav li {
     margin: 0; 
 }
 
-/*
- * Set consistent typographic defaults
- * Firefox and WebKit default <b> and <strong> to 'bolder'
-*/
-
-b, 
-strong { 
-    font-weight: bold; 
-}
-
-address { 
-    font-style: normal; 
-}
-
-small { 
-    font-size: 85%; 
-}
+/* ............................................................................................................. General typography */
 
 /*
  * Add a visual indication that an abbreviation's expansion is available
- * Styling not present in IE6/7/8/9 Chrome10 & Safari5
+ * Styling not present in IE6/7/8/9, S4/5, Chrome
 */
 
 abbr[title] {
@@ -239,9 +224,36 @@ abbr[title] {
 }
 
 /*
- * Add italic font style to <dfn> element
- * Styling not present in Chrome10 & Safari5
+ * Remove default italic font-size from <address>
+ */
+
+address { 
+    font-style: normal; 
+}
+
+/*
+ * Add bold font weight to <b> and <strong> elements
+ * Fixes style set to 'bolder' in FF3/4, S4/5, Chrome
+ */
+
+b, 
+strong { 
+    font-weight: bold; 
+}
+
+
+/*
+ * Consistent blockquote indentation
 */
+
+blockquote {
+    margin: 1.4em 0 1.4em 30px;
+}
+
+/*
+ * Add italic font style to <dfn> element
+ * Styling not present in S5, Chrome
+ */
 
 dfn {
     font-style: italic;
@@ -249,7 +261,7 @@ dfn {
 
 /*
  * Remove underline from <ins> so it is not confused with links
-*/
+ */
  
 ins { 
     text-decoration: none; 
@@ -260,58 +272,12 @@ ins {
 /*
  * Add yellow background and black text to <mark> element
  * Styling not present in IE6/7/8/9
-*/
+ */
 
 mark { 
     font-weight: bold; 
     color: #000; 
     background-color: #ff0;
-}
-
-/*
- * Position subscript and superscript content without affecting line-height
- * - http://gist.github.com/413930
-*/
-
-sup, 
-sub { 
-    position: relative; 
-    font-size: 75%; 
-    line-height: 0; 
-    vertical-align: baseline; 
-}
-
-sup { 
-    top: -0.5em; 
-}
-
-sub { 
-    bottom: -0.25em; 
-}
-
-/*
- * Remove quotes from <q> element
- * 1. CSS quotes not supported in IE6/7
- * 2. Quote attributes not supported in Safari4
-*/
-
-/* 1 */
-q {
-    quotes: none;
-}
-
-/* 2 */
-q:before,
-q:after {
-    content: "";
-}
-
-/*
- * Consistent blockquote indentation
-*/
-
-blockquote {
-    margin: 1.4em 0 1.4em 30px;
 }
 
 /*
@@ -337,6 +303,54 @@ kbd,
 samp { 
     font-family: monospace, sans-serif; 
     font-size: 1em;
+}
+
+/*
+ * Remove quotes from <q> element
+ * 1. CSS quotes not supported in IE6/7
+ * 2. Quote attributes not supported in S4
+ */
+
+/* 1 */
+q {
+    quotes: none;
+}
+
+/* 2 */
+q:before,
+q:after {
+    content: "";
+}
+
+/*
+ * Define font-size and alignment for <small> element
+ */
+
+small { 
+    font-size: 75%;
+    line-height: 1.2
+}
+
+/*
+ * Position subscript and superscript content without affecting line-height
+ * Fixes alignment within multi-line text displayed oddly in all browsers
+ * - http://gist.github.com/413930
+*/
+
+sup, 
+sub { 
+    position: relative; 
+    font-size: 75%; 
+    line-height: 0; 
+    vertical-align: baseline; 
+}
+
+sup { 
+    top: -0.5em; 
+}
+
+sub { 
+    bottom: -0.25em; 
 }
 
 /* ............................................................................................................. Form elements */
