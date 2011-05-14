@@ -8,7 +8,7 @@ URL:    http://github.com/necolas/le-boilerplate
 --------------------------------------------------
 
 ALL MEDIA
-  1. NORMALISATION
+  1. HTML5 DISPLAY
   2. BASE
   3. COMPONENTS
 
@@ -535,10 +535,6 @@ caption {
     filter: none !important; 
 } 
 
-body { 
-    max-width: auto;
-}
-
 a, 
 a:visited { 
     color: #444 !important; 
@@ -587,6 +583,5 @@ h3 {
 @page { 
     margin: 0.5cm;
 }
-
 
 /* end @media print */ }
