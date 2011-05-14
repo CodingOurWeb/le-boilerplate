@@ -203,7 +203,7 @@ dd {
 
 /*
  * Remove margin and bullets from lists in <nav> elements
-*/
+ */
 
 nav ul,
 nav li { 
@@ -217,7 +217,7 @@ nav li {
 /*
  * Add a visual indication that an abbreviation's expansion is available
  * Styling not present in IE6/7/8/9, S4/5, Chrome
-*/
+ */
 
 abbr[title] {
     border-bottom: 1px dotted;
@@ -244,7 +244,7 @@ strong {
 
 /*
  * Consistent blockquote indentation
-*/
+ */
 
 blockquote {
     margin: 1.4em 0 1.4em 30px;
@@ -283,7 +283,7 @@ mark {
 /*
  * Allow line wrapping for <pre> element
  * Improves readability of pre-formatted text
-*/
+ */
 
 pre { 
     white-space: pre; 
@@ -295,13 +295,15 @@ pre {
  * Redeclare monospace font family and include a san-serif fallback
  * Fix so that these elements can then be given normal font size
  * - http://en.wikipedia.org/wiki/User:Davidgothberg/Test59
-*/
+ * 1. Fixes monospace font family set oddly in IE6
+ */
 
 pre, 
 code, 
 kbd, 
 samp { 
     font-family: monospace, sans-serif; 
+    _font-family: 'Courier New', monospace, sans-serif; /* 1 */
     font-size: 1em;
 }
 
@@ -335,7 +337,7 @@ small {
  * Position subscript and superscript content without affecting line-height
  * Fixes alignment within multi-line text displayed oddly in all browsers
  * - http://gist.github.com/413930
-*/
+ */
 
 sup, 
 sub { 
@@ -363,7 +365,7 @@ fieldset {
 
 /*
  * Correct left alignment of <legend> element in IE6/7
-*/
+ */
 
 legend {
     *margin-left: -7px;
@@ -382,7 +384,7 @@ legend {
  *     Corrects button line-height in IE6.
  * 5. Standardised vertical-align
  *     IE defaults to 'auto'. Firefox defaults to 'text-bottom' for <textarea>
-*/
+ */
 
 input,
 button,
@@ -398,7 +400,7 @@ textarea {
 /*
  * Remove extra inner padding and border in FF3/4
  * - http://www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
-*/
+ */
 
 input::-moz-focus-inner,
 button::-moz-focus-inner { 
@@ -411,7 +413,7 @@ button::-moz-focus-inner {
  *     Scrollbar displayed by default in IE6/7/8/9
  * 2. Align <textarea> with top when inline
  *     Improves usability and corrects baseline inconsistency in Firefox 3/4
-*/
+ */
 
 textarea { 
     overflow: auto; /* 1 */
@@ -421,7 +423,7 @@ textarea {
 /*
  * Display hand cursor for submission elements
  * Improves usability of forms
-*/
+ */
 
 input[type="button"], 
 input[type="submit"], 
@@ -435,7 +437,7 @@ button {
 /* 
  * Remove most spacing between table cells
  * Consistent vertical and horizontal alignment
-*/
+ */
 
 table {
     border-collapse: collapse;
@@ -455,7 +457,7 @@ caption {
  * Inclusion of :before consistently prevents margin collapse in modern browsers
  * Improves visual consistency between modern browsers and IE6/7
  * - http://nicolasgallagher.com/micro-clearfix-hack/
-*/
+ */
 
 .cf { 
     *zoom: 1;
@@ -489,10 +491,10 @@ caption {
 
 /*
  * Screen-only style adjustmenets for viewport widths 481px to 780px
-*/
+ */
 
 
-/* end @media 481+ */}/*/mediaquery*/
+/* end @media 481+ */ }
 
 
 
@@ -506,10 +508,10 @@ caption {
 
 /*
  * Screen-only style adjustments for viewport widths 768px and over
-*/
+ */
 
 
-/* end @media 768px+ */}/*/mediaquery*/
+/* end @media 768+ */ }
 
 
 
@@ -524,7 +526,7 @@ caption {
 /*
  * Print-only style adjustements inlined to avoid required HTTP connection
  * - http://www.phpied.com/delay-loading-your-print-css/
-*/
+ */
 
 * { 
     text-shadow: none !important; 
@@ -587,4 +589,4 @@ h3 {
 }
 
 
-/* end @media print */}
+/* end @media print */ }
