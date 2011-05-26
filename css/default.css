@@ -422,15 +422,17 @@ textarea {
 }
 
 /*
- * Display hand cursor for submission elements
- * Improves usability of forms
+ * 1. Display hand cursor for submission elements
+ *      Improves usability and consistency of cursor style between image-type <input> and others
+ * 2. Define consistent appearance for clickable form elements
+ *      Fixes inability to style clickable <input> types in iOS
  */
 
 input[type="button"], 
 input[type="submit"], 
-input[type="image"], 
 button {
     cursor: pointer;
+    -webkit-appearance: button;
 }
 
 /* ............................................................................................................. Table elements */
