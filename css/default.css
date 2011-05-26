@@ -12,9 +12,9 @@ ALL MEDIA
   2. BASE
   3. COMPONENTS
 
-SCREEN 481+
+SCREEN 480+
 
-SCREEN 781+
+SCREEN 768+
 
 PRINT
 
@@ -400,6 +400,7 @@ textarea {
     font-size: 100%; /* 3 */
     line-height: normal; /* 4 */
     vertical-align: baseline; /* 5 */
+    *vertical-align: middle;
 }
 
 /*
@@ -414,6 +415,30 @@ input[type="submit"],
 button {
     cursor: pointer;
     -webkit-appearance: button;
+}
+
+
+/*
+ * Define box sizing for checkbox and radio <input> types
+ * Addresses box sizing set to content-box in IE8/9
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+}
+
+/*
+ * Define box sizing and appearance for search <input> type
+ * Address box sizing set to border-box in S5 Chrome (include -moz to future-proof)
+ * Address appearance set to searchfield in S5 Chrome
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 /*
@@ -437,29 +462,6 @@ button::-moz-focus-inner {
 textarea { 
     overflow: auto; /* 1 */
     vertical-align: top; /* 2 */
-}
-
-/*
- * Define box sizing for checkbox and radio <input> types
- * Addresses box sizing set to content-box in IE8/9
- */
-
-input[type="checkbox"],
-input[type="radio"] {
-    box-sizing: border-box;
-}
-
-/*
- * Define box sizing and appearance for search <input> type
- * Address box sizing set to border-box in S5 Chrome (include -moz to future-proof)
- * Address appearance set to searchfield in S5 Chrome
- */
-
-input[type="search"] {
-    -webkit-appearance: textfield;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
 }
 
 /* ............................................................................................................. Table elements */
@@ -519,17 +521,17 @@ td {
 
 
 /* ============================================================================================================================ **
-**                                                       S C R E E N (481+)
+**                                                       S C R E E N (480+)
 ** ============================================================================================================================ */
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 480px) {
 
 /*
- * Screen-only style adjustmenets for viewport widths 481px to 780px
+ * Screen-only style adjustmenets for viewport widths 480px to 780px
  */
 
 
-/* end @media 481+ */ }
+/* end MQ 480+ */ }
 
 
 
@@ -546,7 +548,7 @@ td {
  */
 
 
-/* end @media 768+ */ }
+/* end MQ 768+ */ }
 
 
 
@@ -619,4 +621,4 @@ h3 {
     margin: 0.5cm;
 }
 
-/* end @media print */ }
+/* end MQ print */ }
