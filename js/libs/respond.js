@@ -1,8 +1,7 @@
 /*
  * respond.js - A small and fast polyfill for min/max-width CSS3 Media Queries
  * Copyright 2011, Scott Jehl, scottjehl.com
- * Dual licensed under the MIT or GPL Version 2 licenses. 
- * Usage: Check out the readme file or github.com/scottjehl/respond
+ * MIT License. github.com/scottjehl/respond
 */
 (function( win, mqSupported ){
 	//exposed namespace
@@ -32,13 +31,16 @@
 		//loop stylesheets, send text content to translate
 		ripCSS			= function(){
 			var sheets 	= links,
-				sl 		= sheets.length;			
+				sl 		= sheets.length,
+				i		= 0,
+				//vars for loop:
+				sheet, href, media, isCSS;
 
-			for( var i = 0; i < sl; i++ ){
-				var sheet		= sheets[ i ],
-					href		= sheet.href,
-					media		= sheet.media,
-					isCSS		= sheet.rel && sheet.rel.toLowerCase() === "stylesheet";
+			for( ; i < sl; i++ ){
+				sheet	= sheets[ i ],
+				href	= sheet.href,
+				media	= sheet.media,
+				isCSS	= sheet.rel && sheet.rel.toLowerCase() === "stylesheet";
 
 				//only links plz and prevent re-parsing
 				if( !!href && isCSS && !parsedSheets[ href ] ){
@@ -72,15 +74,18 @@
 		},
 		
 		//find media blocks in css text, convert to style blocks
-		translate		= function( styles, href, media ){
-			var qs		= styles.match( /@media [^\{]+\{((?!@media)[\s\S])*\}(?=[^\{]*\})/gmi ),
-				ql		= qs && qs.length || 0,
+		translate			= function( styles, href, media ){
+			var qs			= styles.match(  /@media[^\{]+\{([^\{\}]+\{[^\}\{]+\})+/gi ),
+				ql			= qs && qs.length || 0,
 				//try to get CSS path
-				href	= href.substring( 0, href.lastIndexOf( "/" )),
-				repUrls = function( css ){
+				href		= href.substring( 0, href.lastIndexOf( "/" )),
+				repUrls		= function( css ){
 					return css.replace( /(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g, "$1" + href + "$2$3" );
 				},
-				useMedia = !ql && media;
+				useMedia	= !ql && media,
+				//vars used in loop
+				i			= 0,
+				j, fullq, thisq, eachq, eql;
 
 			//if path exists, tack on trailing slash
 			if( href.length ){ href += "/"; }	
@@ -94,8 +99,8 @@
 			}
 			
 
-			for( var i = 0; i < ql; i++ ){
-				var fullq;
+			for( ; i < ql; i++ ){
+				j	= 0;
 				
 				//media attr
 				if( useMedia ){
@@ -107,12 +112,13 @@
 					fullq	= qs[ i ].match( /@media ([^\{]+)\{([\S\s]+?)$/ ) && RegExp.$1;
 					rules.push( RegExp.$2 && repUrls( RegExp.$2 ) );
 				}
-			
-				var eachq	= fullq.split( "," ),
-					eql		= eachq.length;
+				
+				eachq	= fullq.split( "," );
+				eql		= eachq.length;
+				
 					
-				for( var j = 0; j < eql; j++ ){
-					var thisq	= eachq[ j ];
+				for( ; j < eql; j++ ){
+					thisq	= eachq[ j ];
 					mediastyles.push( { 
 						media	: thisq.match( /(only\s+)?([a-zA-Z]+)(\sand)?/ ) && RegExp.$2,
 						rules	: rules.length - 1,
@@ -212,8 +218,6 @@
 			var xmlhttpmethod = false,
 				attempts = [
 					function(){ return new ActiveXObject("Microsoft.XMLHTTP") },
-					function(){ return new ActiveXObject("Msxml3.XMLHTTP") },
-					function(){ return new ActiveXObject("Msxml2.XMLHTTP") },
 					function(){ return new XMLHttpRequest() }		
 				],
 				al = attempts.length;
