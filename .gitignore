@@ -1,7 +1,7 @@
 # To remove existing cache files
 # from the repository, type this
 # into the terminal:
-# git rm -rf –cached dir/file.ext
+# git rm -rf --cached dir/file.ext
 
 # Numerous always-ignore extensions
 *.diff
@@ -15,6 +15,7 @@
 *~
 
 # OS or Editor folders
+.DS_Store
 .cache
 .project
 .settings
