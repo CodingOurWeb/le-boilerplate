@@ -1,8 +1,4 @@
-/*
- * respond.js - A small and fast polyfill for min/max-width CSS3 Media Queries
- * Copyright 2011, Scott Jehl, scottjehl.com
- * MIT License. github.com/scottjehl/respond
-*/
+/*! Respond.js: min/max-width media query polyfill. (c) Scott Jehl. MIT Lic. j.mp/respondjs  */
 (function( win, mqSupported ){
 	//exposed namespace
 	win.respond		= {};
@@ -44,7 +40,7 @@
 
 				//only links plz and prevent re-parsing
 				if( !!href && isCSS && !parsedSheets[ href ] ){
-					if( !/^([a-zA-Z]+?:(\/\/)?(www\.)?)/.test( href ) 
+					if( !/^([a-zA-Z]+?:(\/\/)?)/.test( href ) 
 						|| href.replace( RegExp.$1, "" ).split( "/" )[0] === win.location.host ){
 						requestQueue.push( {
 							href: href,
@@ -211,7 +207,7 @@
 			if ( req.readyState == 4 ){
 				return;
 			}
-			req.send();
+			req.send( null );
 		},
 		//define ajax obj 
 		xmlHttp = (function() {
