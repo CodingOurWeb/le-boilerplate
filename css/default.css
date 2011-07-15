@@ -1,4 +1,4 @@
-/* LE BOILERPLATE, Nicolas Gallaghers 2011-06-24T08:20 UTC · http://github.com/necolas/le-boilerplate */
+/* LE BOILERPLATE, Nicolas Gallagher 2011-07-15T17:39 UTC · http://github.com/necolas/le-boilerplate */
 
 /* 
  * ALL MEDIA
@@ -72,7 +72,7 @@ button,
 input,
 select,
 textarea { 
-    font-family: sans-serif;
+    font-family: arial, sans-serif;
     color: #222; 
 }
 
@@ -404,7 +404,9 @@ td {
 }
 
 
-/* ============================================================================= CLEARFIX */
+/* ============================================================================= HELPER CLASSES */
+
+/* ............................................................................. Clearfix */
 
 /*
  * Clear an element's floated children using generated content
@@ -423,6 +425,17 @@ td {
 
 .cf:after { 
     clear: both; 
+}
+
+/* ............................................................................. Hidden */
+
+/*
+ * Hide visually and for screenreaders
+ */
+
+.hidden { 
+    display: none !important; 
+    visibility: hidden !important; 
 }
 
 
