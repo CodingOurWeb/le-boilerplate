@@ -375,11 +375,13 @@ button::-moz-focus-inner {
 /*
  * 1. Disable default horizontal scrollbar for 'textarea' element in IE6/7/8/9
  * 2. Align 'textarea' with top when inline
+ * 3. Allow only vertical resizing
  */
 
 textarea { 
     overflow: auto; /* 1 */
     vertical-align: top; /* 2 */
+    resize: vertical /* 3 */
 }
 
 
