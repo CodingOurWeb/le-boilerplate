@@ -3,41 +3,18 @@
 
 
 /* TEAM */
-  Front-end developer : Nicolas Gallagher
-  Site: http://nicolasgallagher.com
-  Twitter: @necolas
-  Location: London, UK
+
+Front-end developer : Nicolas Gallagher
+Site: http://nicolasgallagher.com
+Twitter: @necolas
+Location: London, UK
 
 /* THANKS */
-  Names (& URL): 
+
+Names (& URL): 
 
 /* SITE */
-  Standards: HTML5, CSS3
-  Components: Modernizr, jQuery, Respond.js
-  Software:
-  
 
-                                    
-                               -o/-                       
-                               +oo//-                     
-                              :ooo+//:                    
-                             -ooooo///-                   
-                             /oooooo//:                   
-                            :ooooooo+//-                  
-                           -+oooooooo///-                 
-           -://////////////+oooooooooo++////////////::    
-            :+ooooooooooooooooooooooooooooooooooooo+:::-  
-              -/+ooooooooooooooooooooooooooooooo+/::////:-
-                -:+oooooooooooooooooooooooooooo/::///////:-
-                  --/+ooooooooooooooooooooo+::://////:-   
-                     -:+ooooooooooooooooo+:://////:--     
-                       /ooooooooooooooooo+//////:-        
-                      -ooooooooooooooooooo////-           
-                      /ooooooooo+oooooooooo//:            
-                     :ooooooo+/::/+oooooooo+//-           
-                    -oooooo/::///////+oooooo///-          
-                    /ooo+::://////:---:/+oooo//:          
-                   -o+/::///////:-      -:/+o+//-         
-                   :-:///////:-            -:/://         
-                     -////:-                 --//:        
-                       --                       -:        
+Standards: HTML5, CSS3
+Components: jQuery, Modernizr, Respond.js
+Software:

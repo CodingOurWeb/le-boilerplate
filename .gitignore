@@ -13,13 +13,17 @@
 *.swp
 *.vi
 *~
+*.sass-cache
+Session.vim
 
 # OS or Editor folders
 .DS_Store
 .cache
 .project
 .settings
-thumbs.db
+.tmproj
+nbproject
+Thumbs.db
 
 # Folders to ignore
 .hg
