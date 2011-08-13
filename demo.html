@@ -12,7 +12,7 @@
 
     <div>
         
-        <header>
+         <header>
             <hgroup>
                 <h1>Grouped Heading 1</h1>
                 <h2>Grouped Heading 2</h2>
@@ -32,6 +32,8 @@
         <h4>Heading 4</h4>
         <h5>Heading 5</h5>
         <h6>Heading 6</h6>
+
+        <p hidden>This should be hidden in all browsers, apart from IE6</p>
         
         <section>
             <h1>Section Heading 1</h1>            
@@ -47,12 +49,12 @@
 
         <p>
         The <a href="#">a element</a> example<br>
-        The <abbr>abbr element</abbr> and <abbr title="Title text">abbr element with title</abbr> example<br>
+        The <abbr>abbr element</abbr> and <abbr title="Title text">abbr element with title</abbr> examples<br>
         The <b>b element</b> example<br>
         The <cite>cite element</cite> example<br>
         The <code>code element</code> example<br>
         The <del>del element</del> example<br>
-        The <dfn>dfn element</dfn> example<br>
+        The <dfn>dfn element</dfn> and <dfn title="Title text">dfn element with title</dfn> examples<br>
         The <em>em element</em> example<br>
         The <i>i element</i> example<br>
         The img element <img src="http://placekitten.com/16/16" alt=""> example<br>
@@ -309,7 +311,7 @@
             </fieldset>
         </form>
 
-        <div class="cf" style="margin-top:20px; background:#ddd;">
+        <div class="cf" style="margin-top:20px; background:yellow;">
             <h3>clearfix test</h3>
             <div style="float:left; width:48%; height:100px; margin:0 1% 0 20px; background:#ccc;">float</div>
             <div style="height:50px; background:#aaa;">non-float</div>
@@ -320,8 +322,5 @@
     <!-- jQuery CDN and fallback -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.6.2.min.js">\x3C/script>')</script>
-    <!-- scripts concatenated and minified via ant build script-->
-    <script src="/js/helpers.js"></script>
-    <!-- end scripts-->
 </body>
 </html>

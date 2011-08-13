@@ -1,4 +1,4 @@
-/* LE BOILERPLATE, Nicolas Gallagher 2011-07-15T17:39 UTC · http://github.com/necolas/le-boilerplate */
+/* 2011-08-13T01:25 UTC · http://github.com/necolas/le-boilerplate */
 
 /* 
  * ALL MEDIA
@@ -7,30 +7,23 @@
  * PRINT
  */
 
-/* ============================================================================================================= ALL */
 
-/*
- * Styles affecting all viewport widths and print (keep linear and fluid)
- */
+/* ============================================================================ HTML5 ELEMENT DISPLAY */
 
-/* ============================================================================= HTML5 ELEMENT DISPLAY */
-
-header, 
-section, 
-article, 
-aside, 
+article,
+aside,
+details,
+figcaption,
+figure,
 footer,
-nav, 
-menu, 
-hgroup, 
-figure, 
-figcaption, 
-details, 
-summary {
+header,
+hgroup,
+nav,
+section {
     display: block;
 }
 
-audio[controls],
+audio,
 canvas,
 video {
     display: inline-block;
@@ -38,31 +31,38 @@ video {
     *zoom: 1;
 }
 
+audio:not([controls]) {
+    display: none;
+}
 
-/* ============================================================================= BASE */
+[hidden] {
+    display: none;
+}
+
+
+/* ============================================================================ BASE */
 
 /*
  * 1. Prevent text resizing oddly in IE6/7 when body font-size is set using em units
  * 2. Keep page centred in all browsers regardless of content height
- * 3. Remove Android and iOS tap highlight color; prevent entire container being highlighted
- * 4. Remove iOS text size adjust without disabling user zoom
+ * 3. Remove iOS text size adjust without disabling user zoom
  */
 
 html {
     font-size: 100%; /* 1 */
     overflow-y: scroll; /* 2 */
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
-    -webkit-text-size-adjust: 100%; /* 4 */
-    -ms-text-size-adjust: 100%; /* 4 */
+    -webkit-text-size-adjust: 100%; /* 3 */
+    -ms-text-size-adjust: 100%; /* 3 */
 }
 
 /*
- * N.B.  Add a max-width to body/container as a fallback in certain desktop environments
+ * N.B. Add a max-width to body/container as a fallback in desktop environments with
+ * no Media Query support or polyfill
  */
 
 body {
     margin: 0;
-    font-size: 0.875em; /* 14px */
+    font-size: 1em; /* 16px */
     line-height: 1.4;
     background: #fff;
 }
@@ -78,22 +78,21 @@ textarea {
 
 /*
  * Remove selection highlight text-shadow to ensure readability is not compromised
+ * Set selection highlight background to match OSX default
  */
 
 ::-moz-selection { 
     text-shadow: none;
-    color: #fff; 
-    background: #ff5e99;
+    background: #b3d4fc;
 }
 
 ::selection { 
     text-shadow: none;
-    color: #fff; 
-    background: #ff5e99;
+    background: #b3d4fc;
 }
 
 
-/* ============================================================================= LINKS */
+/* ============================================================================ LINKS */
 
 a, 
 a:visited { 
@@ -122,7 +121,7 @@ a:active {
 }
 
 
-/* ============================================================================= TYPOGRAPHY */
+/* ============================================================================ TYPOGRAPHY */
 
 h1 {}
 h2 {}
@@ -139,7 +138,7 @@ dl {
     margin: 1.4em 0;
 }
 
-/* ............................................................................. Lists */
+/* ............................................................................ Lists */
 
 ul, 
 ol { 
@@ -164,7 +163,7 @@ nav li {
     margin: 0; 
 }
 
-/* ............................................................................. Inline */
+/* ............................................................................ Inline */
 
 abbr[title] {
     border-bottom: 1px dotted;
@@ -219,8 +218,8 @@ pre,
 code, 
 kbd, 
 samp { 
-    font-family: monospace, monospace; 
-    _font-family: 'Courier New', monospace;
+    font-family: monospace, serif; 
+    _font-family: 'Courier New', serif;
     font-size: 1em;
 }
 
@@ -239,7 +238,6 @@ small {
 
 /*
  * Prevent sub and sup affecting line-height in all browsers
- * gist.github.com/413930
  */
 
 sup, 
@@ -259,12 +257,11 @@ sub {
 }
 
 
-/* ============================================================================= EMBEDDED CONTENT */
+/* ============================================================================ EMBEDDED CONTENT */
 
 /*
  * 1. Remove border when inside 'a' element in IE6/7/8/9
  * 2. Improve image quality when scaled in IE7
- *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
 
 img {
@@ -281,7 +278,14 @@ svg:not(:root) {
 }
 
 
-/* ============================================================================= FORMS */
+/* ============================================================================ FORMS */
+
+figure {
+    margin: 0;
+}
+
+
+/* ============================================================================ FORMS */
 
 form {
     margin: 0;
@@ -300,11 +304,9 @@ legend {
 
 /*
  * 1. Remove extra inner space from 'input' and 'button' in IE6/7
- * 2. Remove margins from form elements
- * 3. Make font-size equal to ancestor's
- * 4. Have all browsers use the same line-height.
- * 5. Remove :focus outline offset in WebKit 
- * 6. Standardise vertical-align
+ * 2. Make font-size equal to ancestor's
+ * 3. Have all browsers use the same line-height.
+ * 4. Standardise vertical-align
  */
 
 button,
@@ -312,12 +314,16 @@ input,
 select,
 textarea {
     overflow: visible;  /* 1 */
-    margin: 0; /* 2 */
-    font-size: 100%; /* 3 */
-    line-height: normal; /* 4 */
-    outline-offset: 0; /* 5 */
-    vertical-align: baseline; /* 6 */
+    margin: 0;
+    font-size: 100%; /* 2 */
+    line-height: normal; /* 3 */
+    vertical-align: baseline; /* 4 */
     *vertical-align: middle;
+}
+
+table button,
+table input {
+    *overflow: auto;
 }
 
 /*
@@ -340,11 +346,13 @@ input[type="submit"] {
 input[type="checkbox"],
 input[type="radio"] {
     box-sizing: border-box;
+    padding: 0;
 }
 
 /*
- * 1. Fix ability to fully style search inputs in WebKit browsers
+ * 1. Fix inability to fully style search inputs in WebKit browsers
  * 2. Fix box sizing set to border-box in S5, Chrome
+ * 3. Set outline offset to match other textfields
  */
 
 input[type="search"] {
@@ -352,6 +360,7 @@ input[type="search"] {
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box; /* 2 */
     box-sizing: content-box;
+    outline-offset: -2px; /* 3 */
 }
 
 /*
@@ -385,7 +394,7 @@ textarea {
 }
 
 
-/* ============================================================================= TABLES */
+/* ============================================================================ TABLES */
 
 /* 
  * Remove most spacing between table cells
@@ -406,13 +415,12 @@ td {
 }
 
 
-/* ============================================================================= HELPER CLASSES */
+/* ============================================================================ HELPER CLASSES */
 
-/* ............................................................................. Clearfix */
+/* ............................................................................ Clearfix */
 
 /*
  * Clear an element's floated children using generated content
- * nicolasgallagher.com/micro-clearfix-hack/
  */
 
 .cf { 
@@ -429,7 +437,7 @@ td {
     clear: both; 
 }
 
-/* ............................................................................. Hidden */
+/* ............................................................................ Hidden */
 
 /*
  * Hide visually and for screenreaders
@@ -441,7 +449,7 @@ td {
 }
 
 
-/* ============================================================================= COMPONENTS */
+/* ============================================================================ COMPONENTS */
 
 
 
@@ -452,12 +460,12 @@ td {
 
 
 
-/* ============================================================================================================= SCREEN (480+) */
+/* ========================================================================================================== SCREEN (480+) */
 
 @media screen and (min-width: 480px) {
 
 /*
- * Screen-only style adjustmenets for viewport widths 480px to 780px
+ * Screen-only style adjustmenets for viewport widths 480px to 768px
  */
 
 
@@ -467,7 +475,7 @@ td {
 
 
 
-/* ============================================================================================================= SCREEN (768+) */
+/* ========================================================================================================== SCREEN (768+) */
 
 @media screen and (min-width: 768px) {
 
@@ -482,7 +490,7 @@ td {
 
 
 
-/* ============================================================================================================= PRINT */
+/* ========================================================================================================== PRINT */
 
 @media print {
 
