@@ -1,14 +1,6 @@
-/* 2011-08-13T01:25 UTC · http://github.com/necolas/le-boilerplate */
+/*! 2011-08-13T01:25 UTC · http://github.com/necolas/le-boilerplate */
 
-/* 
- * ALL MEDIA
- * SCREEN 480+
- * SCREEN 768+
- * PRINT
- */
-
-
-/* ============================================================================ HTML5 ELEMENT DISPLAY */
+/* ============================================================================ HTML5 DISPLAY DEFINITIONS */
 
 article,
 aside,
@@ -67,6 +59,11 @@ body {
     background: #fff;
 }
 
+/*
+ * Set the default font-family and color
+ * Make sure it is also applied to form elements
+ */
+
 body, 
 button, 
 input,
@@ -107,7 +104,7 @@ a:active {
 }
 
 /*
- * Focus and mouse interaction outline states
+ * Accessible focus and mouse interaction outline states
  */
 
 a:focus {
@@ -198,11 +195,6 @@ mark {
     color: #000; 
     background: #ff0;
 }
-
-/*
- * Allow line wrapping for <pre> element
- * Improves readability of pre-formatted text
- */
 
 pre { 
     white-space: pre; 
@@ -303,7 +295,7 @@ legend {
 }
 
 /*
- * 1. Remove extra inner space from 'input' and 'button' in IE6/7
+ * 1. Remove extra inner space from submission elements in IE6/7
  * 2. Make font-size equal to ancestor's
  * 3. Have all browsers use the same line-height.
  * 4. Standardise vertical-align
@@ -321,6 +313,10 @@ textarea {
     *vertical-align: middle;
 }
 
+/*
+ * Reintroduce extra inner space when in a 'table' to avoid various IE6/7 bugs
+ */
+
 table button,
 table input {
     *overflow: auto;
@@ -337,7 +333,6 @@ input[type="submit"] {
     cursor: pointer; /* 1 */
     -webkit-appearance: button; /* 2 */
 }
-
 
 /*
  * Fix box sizing set to content-box in IE8/9
@@ -419,10 +414,6 @@ td {
 
 /* ............................................................................ Clearfix */
 
-/*
- * Clear an element's floated children using generated content
- */
-
 .cf { 
     *zoom: 1;
 }
@@ -439,22 +430,20 @@ td {
 
 /* ............................................................................ Hidden */
 
-/*
- * Hide visually and for screenreaders
- */
-
 .hidden { 
     display: none !important; 
     visibility: hidden !important; 
 }
 
+/* ............................................................................ Visually hidden */
+
+.vishidden { 
+    position: absolute !important; 
+    left: -9999em; 
+}
+
 
 /* ============================================================================ COMPONENTS */
-
-
-
-
-
 
 
 
