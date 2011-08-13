@@ -2,11 +2,11 @@
 
 My personal boilerplate: HTML5, small screen first, cross-browser, normalization, progressive enhancement. 
 
-Adapted from the [HTML5 Boilerplate](http://html5boilerplate.com) and [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile) projects. Check them out.
+Incorporates parts of the [HTML5 Boilerplate](http://html5boilerplate.com) and [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile) projects. Check them out.
 
 ## Overview:
 
-### 2011-06-24T08:20 UTC
+### 2011-08-13T01:50 UTC
 
 #### index.html
 
@@ -19,17 +19,13 @@ Adapted from the [HTML5 Boilerplate](http://html5boilerplate.com) and [Mobile HT
 
 #### default.css
 
-* Small screen first approach. Build up the design in layers of project-specific @media queries.
 * Built upon [normalize.css](https://github.com/necolas/normalize.css).
+* Small screen first approach. Build up the design in layers of project-specific @media queries.
 * Includes personalizations, clearfix helper class, and some print styles from H5BP. 
 
-#### Build Script, .htaccess
+#### .htaccess
 
 Refer to the release notes for [HTML5 Boilerplate on Github](http://github.com/paulirish/html5-boilerplate).
-
-The build script included here is cloned and kept up to date with the H5BP repo.
-
-The `.htaccess` file is a reduced version of the H5BP file.
 
 ## License
 
