@@ -445,6 +445,65 @@ td {
 
 /* ============================================================================ COMPONENTS */
 
+/* ............................................................................ Multimedia object */
+
+/*
+ * Source
+ * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ * facebook.com
+ */
+
+.mmobj {
+
+}
+
+/*
+ * Primary graphical component (e.g. img, svg, sprite)
+ */
+
+.mmobj .gfx {
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+/*
+ * Optional graphical component
+ */
+
+.mmobj .gfx-opt {
+    float: right;
+    margin: 0 0 0 10px;
+}
+
+/*
+ * Remove excess space below images in .gfx block
+ */
+
+.mmobj .gfx img,
+.mmobj .gfx-opt img {
+    display: block;
+} 
+
+/*
+ * Content block
+ * 1. Create new block formatting context in modern browsers
+ * 2. Avoid shrink-wrap behaviour of table-cell
+ * 3. Override for IE6/7
+ * 4. Create new block formatting context in IE6/7
+ *
+ * N.B. This breaks down in some browsers when images within .cont exceed its 
+ * width. The alternative is to use 'overflow:hidden' to create the NBFC but 
+ * this is problematic if the object contains elements absolutely positioned 
+ * beyond the confines of its box.
+ */
+
+.mmobj .cont {
+    display:table-cell; /* 1 */
+    width:10000px; /* 2 */
+    *width:auto; /* 3 */
+    *zoom:1; /* 4 */
+}
+
 
 
 
