@@ -1,4 +1,4 @@
-/*! 2011-09-14T12:22 UTC - http://github.com/necolas/le-boilerplate */
+/*! 2011-09-14T12:29 UTC - http://github.com/necolas/le-boilerplate */
 
 /* ============================================================================ HTML5 DISPLAY DEFINITIONS */
 
@@ -423,15 +423,6 @@ table {
     border-spacing: 0;
 }
 
-caption {
-    text-align: left;
-}
-
-th,
-td {
-    text-align: left;
-}
-
 
 /* ============================================================================ HELPER CLASSES */
 
@@ -471,7 +462,7 @@ td {
 /* ............................................................................ Multimedia object */
 
 /*
- * Source
+ * Adapted from:
  * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
  * facebook.com
  */
