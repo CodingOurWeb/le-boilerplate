@@ -1,4 +1,4 @@
-/*! 2011-08-13T01:25 UTC · http://github.com/necolas/le-boilerplate */
+/*! 2011-08-13T01:25 UTC - http://github.com/necolas/le-boilerplate */
 
 /* ============================================================================ HTML5 DISPLAY DEFINITIONS */
 
@@ -64,13 +64,13 @@ body {
  * Make sure it is also applied to form elements
  */
 
-body, 
-button, 
+body,
+button,
 input,
 select,
-textarea { 
+textarea {
     font-family: arial, sans-serif;
-    color: #222; 
+    color: #222;
 }
 
 /*
@@ -78,12 +78,12 @@ textarea {
  * Set selection highlight background to match OSX default
  */
 
-::-moz-selection { 
+::-moz-selection {
     text-shadow: none;
     background: #b3d4fc;
 }
 
-::selection { 
+::selection {
     text-shadow: none;
     background: #b3d4fc;
 }
@@ -91,15 +91,15 @@ textarea {
 
 /* ============================================================================ LINKS */
 
-a, 
-a:visited { 
-    text-decoration: underline; 
+a,
+a:visited {
+    text-decoration: underline;
     color: #06c;
 }
 
-a:hover, 
-a:focus, 
-a:active { 
+a:hover,
+a:focus,
+a:active {
     text-decoration: none;
 }
 
@@ -112,8 +112,8 @@ a:focus {
 }
 
 
-a:hover, 
-a:active { 
+a:hover,
+a:active {
     outline: 0;
 }
 
@@ -131,14 +131,14 @@ blockquote,
 p,
 ul,
 ol,
-dl { 
+dl {
     margin: 1.4em 0;
 }
 
 /* ............................................................................ Lists */
 
-ul, 
-ol { 
+ul,
+ol {
     padding: 0 0 0 40px;
 }
 
@@ -154,10 +154,10 @@ dd {
 }
 
 nav ul,
-nav li { 
+nav li {
     list-style: none;
     padding: 0;
-    margin: 0; 
+    margin: 0;
 }
 
 /* ............................................................................ Inline */
@@ -166,13 +166,13 @@ abbr[title] {
     border-bottom: 1px dotted;
 }
 
-address { 
-    font-style: normal; 
+address {
+    font-style: normal;
 }
 
-b, 
-strong { 
-    font-weight: bold; 
+b,
+strong {
+    font-weight: bold;
 }
 
 blockquote {
@@ -184,33 +184,33 @@ dfn {
     font-style: italic;
 }
  
-ins { 
-    text-decoration: none; 
+ins {
+    text-decoration: none;
     color: #000;
     background: #ff9;
 }
 
-mark { 
-    font-weight: bold; 
-    color: #000; 
+mark {
+    font-weight: bold;
+    color: #000;
     background: #ff0;
 }
 
-pre { 
-    white-space: pre; 
-    white-space: pre-wrap; 
-    word-wrap: break-word; 
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 /*
  * Redeclare monospace font family to allow proper font size control
  */
 
-pre, 
-code, 
-kbd, 
-samp { 
-    font-family: monospace, serif; 
+pre,
+code,
+kbd,
+samp {
+    font-family: monospace, serif;
     _font-family: 'Courier New', serif;
     font-size: 1em;
 }
@@ -221,10 +221,10 @@ q {
 
 q:before,
 q:after {
-    content: "";
+    content: '';
 }
 
-small { 
+small {
     font-size: 75%;
 }
 
@@ -232,20 +232,20 @@ small {
  * Prevent sub and sup affecting line-height in all browsers
  */
 
-sup, 
-sub { 
-    position: relative; 
-    font-size: 75%; 
-    line-height: 0; 
-    vertical-align: baseline; 
+sup,
+sub {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
 }
 
-sup { 
-    top: -0.5em; 
+sup {
+    top: -0.5em;
 }
 
-sub { 
-    bottom: -0.25em; 
+sub {
+    bottom: -0.25em;
 }
 
 
@@ -262,7 +262,7 @@ img {
 }
 
 /*
- * Correct overflow displayed oddly in IE9 
+ * Correct overflow displayed oddly in IE9
  */
 
 svg:not(:root) {
@@ -328,7 +328,7 @@ table input {
  */
 
 button,
-input[type="button"], 
+input[type="button"],
 input[type="submit"] {
     cursor: pointer; /* 1 */
     -webkit-appearance: button; /* 2 */
@@ -371,9 +371,9 @@ input[type="search"]::-webkit-search-decoration {
  */
 
 input::-moz-focus-inner,
-button::-moz-focus-inner { 
+button::-moz-focus-inner {
     padding: 0;
-    border: 0;  
+    border: 0;
 }
 
 /*
@@ -382,7 +382,7 @@ button::-moz-focus-inner {
  * 3. Allow only vertical resizing
  */
 
-textarea { 
+textarea {
     overflow: auto; /* 1 */
     vertical-align: top; /* 2 */
     resize: vertical /* 3 */
@@ -414,32 +414,32 @@ td {
 
 /* ............................................................................ Clearfix */
 
-.cf { 
+.cf {
     *zoom: 1;
 }
 
-.cf:before, 
-.cf:after { 
-    content: ""; 
-    display: table; 
+.cf:before,
+.cf:after {
+    content: '';
+    display: table;
 }
 
-.cf:after { 
-    clear: both; 
+.cf:after {
+    clear: both;
 }
 
 /* ............................................................................ Hidden */
 
-.hidden { 
-    display: none !important; 
-    visibility: hidden !important; 
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
 }
 
 /* ............................................................................ Visually hidden */
 
-.vishidden { 
-    position: absolute !important; 
-    left: -9999em; 
+.vishidden {
+    position: absolute !important;
+    left: -9999em;
 }
 
 
@@ -546,25 +546,25 @@ td {
  * Print-only style adjustements inlined to avoid required HTTP connection
  */
 
-* { 
-    text-shadow: none !important; 
-    background: transparent !important; 
-    color: black !important; 
-    filter: none !important; 
-} 
-
-a, 
-a:visited { 
-    color: #444 !important; 
-    text-decoration: underline; 
+* {
+    text-shadow: none !important;
+    background: transparent !important;
+    color: black !important;
+    filter: none !important;
 }
 
-a[href]:after { 
-    content: " (" attr(href) ")"; 
+a,
+a:visited {
+    color: #444 !important;
+    text-decoration: underline;
 }
 
-a[href^="#"]:after { 
-    content: ""; 
+a[href]:after {
+    content: ' (' attr(href) ')';
+}
+
+a[href^="#"]:after {
+    content: '';
 }
 
 img,
@@ -572,34 +572,34 @@ video {
     max-width:100% !important;
 }
 
-pre, 
-blockquote { 
-    border: 1px solid #999; 
-    page-break-inside: avoid; 
+pre,
+blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
 }
 
-thead { 
-    display: table-header-group; 
+thead {
+    display: table-header-group;
 }
 
-tr, 
-img { 
-    page-break-inside: avoid; 
+tr,
+img {
+    page-break-inside: avoid;
 }
 
-h2, 
-h3 { 
+h2,
+h3 {
     page-break-after: avoid;
 }
 
-p, 
-h2, 
-h3 { 
-    orphans: 3; 
+p,
+h2,
+h3 {
+    orphans: 3;
     widows: 3;
- }
+}
 
-@page { 
+@page {
     margin: 0.5cm;
 }
 
