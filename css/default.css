@@ -293,7 +293,7 @@ svg:not(:root) {
 }
 
 
-/* ============================================================================ FORMS */
+/* ============================================================================ FIGURES */
 
 figure {
     margin: 0;
@@ -328,26 +328,17 @@ button,
 input,
 select,
 textarea {
-    overflow: visible;  /* 1 */
     margin: 0;
-    font-size: 100%; /* 2 */
-    line-height: normal; /* 3 */
-    vertical-align: baseline; /* 4 */
+    font-size: 100%; /* 1 */
+    line-height: normal; /* 2 */
+    vertical-align: baseline; /* 3 */
     *vertical-align: middle;
-}
-
-/*
- * Reintroduce extra inner space when in a 'table' to avoid various IE6/7 bugs
- */
-
-table button,
-table input {
-    *overflow: auto;
 }
 
 /*
  * 1. Display hand cursor for submission elements
  * 2. Fix inability to style clickable 'input' types in iOS
+ * 3. Corrects inner spacing displayed oddly in IE7 without effecting normal text inputs
  */
 
 button,
@@ -355,6 +346,7 @@ input[type="button"],
 input[type="submit"] {
     cursor: pointer; /* 1 */
     -webkit-appearance: button; /* 2 */
+    *overflow: auto; /* 3 */
 }
 
 /*
